@@ -88,10 +88,20 @@ fun TopBarSearchView(
                 .weight(1f)
                 .padding(end = 8.dp),
             placeholder = { Text("Search movies...") },
-            singleLine = true
+            singleLine = true,
+            shape = RoundedCornerShape(16.dp),
+            colors = androidx.compose.material3.TextFieldDefaults.colors(
+                focusedContainerColor = MaterialTheme.colorScheme.surface,
+                unfocusedContainerColor = MaterialTheme.colorScheme.surface,
+                focusedIndicatorColor = MaterialTheme.colorScheme.primary,
+                unfocusedIndicatorColor = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.5f),
+                cursorColor = MaterialTheme.colorScheme.primary
+            )
         )
+
         androidx.compose.material3.Button(
-            onClick = { onSearch(query) }
+            onClick = { onSearch(query) },
+            shape = RoundedCornerShape(16.dp)
         ) {
             Text(text = "Search")
         }
